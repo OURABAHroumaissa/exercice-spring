@@ -27,6 +27,7 @@ public class Adresse {
     @Column
     @Size(max=100)
     private String country;
+
    /* @OneToMany
     private List<Personne> personnes;*/
 

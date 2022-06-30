@@ -1,6 +1,7 @@
 package com.example.exercicespring.entite;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.sql.Date;
 /**
  * Classe fille stagiaire qui herite de personne
@@ -11,8 +12,10 @@ import java.sql.Date;
 @DiscriminatorValue("Stagiaire")
 public class Stagiaire extends Personne{
     @Column(name = "datenaissance")
+    @NotNull
     private Date dateNaissance;
-    @ManyToOne
+    @OneToOne
+    @NotNull
     private Formateur formateur;
 
     public Stagiaire() {

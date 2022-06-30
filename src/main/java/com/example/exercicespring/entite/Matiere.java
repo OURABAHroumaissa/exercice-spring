@@ -1,6 +1,7 @@
 package com.example.exercicespring.entite;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
 
@@ -16,11 +17,14 @@ public class Matiere {
     private int id;
     @Column
     @Size(max=100)
+    @NotNull
     private String nom;
     @Column
+    @NotNull
     private int duree;
     @Column
     @Size(max=20)
+    @NotNull
     private String difficulte;
     @ManyToMany@JoinTable(name="competence",uniqueConstraints=@UniqueConstraint(columnNames={ "FORMATEUR_ID", "MATIERE_ID" }),joinColumns=@JoinColumn(name="FORMATEUR_ID", referencedColumnName="id"),inverseJoinColumns=@JoinColumn(name="MATIERE_ID", referencedColumnName="id"))
     private List<Formateur> formateurs;

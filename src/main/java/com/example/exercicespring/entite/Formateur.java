@@ -21,6 +21,8 @@ public class Formateur extends Personne{
     private int experience;
     @Column
     private boolean interne;
+ /*   @OneToMany
+    private List<Stagiaire> stagiaire;*/
     @ManyToMany@JoinTable(name="competence",uniqueConstraints=@UniqueConstraint(columnNames={ "FORMATEUR_ID", "MATIERE_ID" }),joinColumns=@JoinColumn(name="FORMATEUR_ID", referencedColumnName="id"),inverseJoinColumns=@JoinColumn(name="MATIERE_ID", referencedColumnName="id"))
     private List<Matiere> matieres;
 
